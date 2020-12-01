@@ -34,6 +34,8 @@ endif(UNIX)
 # for systems like Rapsberry Pi
 list(APPEND CMAKE_PREFIX_PATH "/usr/lib/arm-linux-gnueabihf")
 
+list(APPEND CMAKE_PREFIX_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/")
+
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules" "${CMAKE_ROOT}/Modules")
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -442,6 +444,7 @@ if (UNIX)
     find_package(Qt5Network REQUIRED)
     find_package(Qt5LinguistTools REQUIRED)
     find_package(Qt5Concurrent REQUIRED)
+    find_package(XCB REQUIRED)
     #find_package(Qt5Test REQUIRED)
 
     if (WITH_X11)
